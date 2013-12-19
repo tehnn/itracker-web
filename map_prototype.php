@@ -140,16 +140,16 @@ if (empty($_SESSION['user'])) {
 
             var ajaxObj = {//Object to save cluttering the namespace.
                 options: {
-                    url: "getmarker.php", //The resource that delivers loc data.
+                    url: "getcars.php", //The resource that delivers loc data.
                     dataType: "json"//The type of data tp be returned by the server.
                 },
-                delay: 1000, //(milliseconds) the interval between successive gets.
+                delay: 2000, //(milliseconds) the interval between successive gets.
                 errorCount: 0, //running total of ajax errors.
                 errorThreshold: 5, //the number of ajax errors beyond which the get cycle should cease.
                 ticker: null, //setTimeout reference - allows the get cycle to be cancelled with clearTimeout(ajaxObj.ticker);
                 get: function() { //a function which initiates 
                     if (ajaxObj.errorCount < ajaxObj.errorThreshold) {
-                        ajaxObj.ticker = setTimeout(getMarkerData, ajaxObj.delay);
+                        ajaxObj.ticker = setTimeout(getCarsData, ajaxObj.delay);
                     }
                 },
                 fail: function(jqXHR, textStatus, errorThrown) {
@@ -159,14 +159,14 @@ if (empty($_SESSION['user'])) {
             };
 
             //Ajax master routine
-            function getMarkerData() {
+            function getCarsData() {
                 $.ajax(ajaxObj.options)
                         .done(setMarkers) //fires when ajax returns successfully
                         .fail(ajaxObj.fail) //fires when an ajax error occurs
                         .always(ajaxObj.get); //fires after ajax success or ajax error
             }
 
-            setMarkers(locs);//Create markers from the initial dataset served with the document.
+            //setMarkers(locs);//Create markers from the initial dataset served with the document.
             ajaxObj.get();//Start the get cycle.
 
 
