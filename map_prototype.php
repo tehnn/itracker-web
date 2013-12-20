@@ -1,10 +1,3 @@
-<?php
-session_start();
-if (empty($_SESSION['user'])) {
-    //echo "Not permission!!!";
-    //exit;
-}
-?>
 <!DOCTYPE html> 
 <html>
     <head>
@@ -21,7 +14,7 @@ if (empty($_SESSION['user'])) {
                 padding: 0 !important;
             }
         </style>
-        <script>            
+        <script>
             function getRealContentHeight() {
                 var header = $.mobile.activePage.find("div[data-role='header']:visible");
                 var footer = $.mobile.activePage.find("div[data-role='footer']:visible");
@@ -56,24 +49,16 @@ if (empty($_SESSION['user'])) {
                 <h4>Copy Right 2013 - 2015</h4>
             </div>
         </div>
-        
-        
+
+
         <script>
             var locations = {};//A repository for markers (and the data from which they were contructed).
 
-            //initial dataset for markers
-            var locs = {
-                1: {info: '11111. Some random info here', lat: -37.8139, lng: 144.9634},
-                2: {info: '22222. Some random info here', lat: 46.0553, lng: 14.5144},
-                3: {info: '33333. Some random info here', lat: -33.7333, lng: 151.0833},
-                4: {info: 'tehnn', lat: 27.9798, lng: -81.731}
-            };
+           
             var map = new google.maps.Map(document.getElementById('map-canvas'), {
-                zoom: 2,
-                maxZoom: 8,
-                minZoom: 1,
+                zoom: 4,
                 streetViewControl: false,
-                center: new google.maps.LatLng(40, 0),
+                center: new google.maps.LatLng(16, 100),
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             });
             var infowindow = new google.maps.InfoWindow();
@@ -98,9 +83,13 @@ if (empty($_SESSION['user'])) {
                         //Marker has not yet been made (and there's enough data to create one).
 
                         //Create marker
+                        var icon_img = 'ambulance_car2.png';
+
                         loc.marker = new google.maps.Marker({
                             position: new google.maps.LatLng(loc.lat, loc.lng),
-                            map: map
+                            map: map,
+                            icon: icon_img,
+                            title:loc.info
                         });
 
                         //Attach click listener to marker
@@ -171,6 +160,6 @@ if (empty($_SESSION['user'])) {
 
 
         </script>
-        
+
     </body>
 </html>
