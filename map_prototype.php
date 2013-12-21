@@ -14,6 +14,21 @@
                 padding: 0 !important;
             }
         </style>
+
+        <style type="text/css">
+            .labels {
+                color: red;
+                background-color: white;
+                font-family: "Lucida Grande", "Arial", sans-serif;
+                font-size: 10px;
+                font-weight: bold;
+                text-align: center;
+                width: 40px;     
+                border: 1px solid black;
+                white-space: nowrap;
+            }
+        </style>
+
         <script>
             function getRealContentHeight() {
                 var header = $.mobile.activePage.find("div[data-role='header']:visible");
@@ -33,6 +48,8 @@
                 //initialize();
             });
         </script>
+        <script src="https://google-maps-utility-library-v3.googlecode.com/svn-history/r131/trunk/markerwithlabel/src/markerwithlabel.js" ></script>
+
     </head>
     <body>
         <div data-role="page" id="page-map" >
@@ -54,7 +71,7 @@
         <script>
             var locations = {};//A repository for markers (and the data from which they were contructed).
 
-           
+
             var map = new google.maps.Map(document.getElementById('map-canvas'), {
                 zoom: 4,
                 streetViewControl: false,
@@ -85,11 +102,14 @@
                         //Create marker
                         var icon_img = 'ambulance_car2.png';
 
-                        loc.marker = new google.maps.Marker({
+                        loc.marker = new MarkerWithLabel({
                             position: new google.maps.LatLng(loc.lat, loc.lng),
                             map: map,
                             icon: icon_img,
-                            title:loc.info
+                            labelContent: loc.info,
+                            //labelAnchor: new google.maps.Point(22, 0),
+                            labelClass: "labels", // the CSS class for the label
+                            //labelStyle: {opacity: 0.75}
                         });
 
                         //Attach click listener to marker
