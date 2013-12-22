@@ -7,28 +7,25 @@
         <link rel="stylesheet" href="themes/mytheme.css" />
         <script src="lib/jquery-1.9.1.min.js" ></script>
         <script src="lib/jquery.mobile-1.3.2.min.js" ></script>
-        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&language=TH"></script>  
-
-        <style>
-            #content {
-                padding: 0 !important;
-            }
-        </style>
-
         <style type="text/css">
             .labels {
                 color: red;
                 background-color: white;
                 font-family: "Lucida Grande", "Arial", sans-serif;
                 font-size: 10px;
-                font-weight: bold;
+                font-weight: bold;                
                 text-align: center;
-                width: 40px;     
-                border: 1px solid black;
+                border: 1px solid #3c3c3c;
                 white-space: nowrap;
             }
         </style>
-
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3&amp;sensor=false&language=th"></script>
+        <script type="text/javascript" src="lib/markerwithlabel.js"></script>
+        <style>
+            #content {
+                padding: 0 !important;
+            }
+        </style>
         <script>
             function getRealContentHeight() {
                 var header = $.mobile.activePage.find("div[data-role='header']:visible");
@@ -45,10 +42,9 @@
 
             $(document).on('pageshow', '#page-map', function(e, data) {
                 $('#content').height(getRealContentHeight());
-                //initialize();
+                
             });
         </script>
-        <script src="https://google-maps-utility-library-v3.googlecode.com/svn-history/r131/trunk/markerwithlabel/src/markerwithlabel.js" ></script>
 
     </head>
     <body>
@@ -100,16 +96,26 @@
                         //Marker has not yet been made (and there's enough data to create one).
 
                         //Create marker
-                        var icon_img = 'ambulance_car2.png';
+                        var icon_img;
+                        if (loc.type == 'a') {
+                            icon_img = 'a.png';
+                        }
+                        if (loc.type == 'b') {
+                            icon_img = 'b.png';
+                        }
+                        if (loc.type == 'c') {
+                            icon_img = 'c.png';
+                        }
 
                         loc.marker = new MarkerWithLabel({
                             position: new google.maps.LatLng(loc.lat, loc.lng),
+                            icon:icon_img,
+                           
                             map: map,
-                            icon: icon_img,
                             labelContent: loc.info,
-                            //labelAnchor: new google.maps.Point(22, 0),
+                            labelAnchor: new google.maps.Point(22, 0),
                             labelClass: "labels", // the CSS class for the label
-                            //labelStyle: {opacity: 0.75}
+                            labelStyle: {opacity: 1.0}
                         });
 
                         //Attach click listener to marker
