@@ -113,7 +113,7 @@
                            
                             map: map,
                             labelContent: loc.info,
-                            labelAnchor: new google.maps.Point(22, 0),
+                            labelAnchor: new google.maps.Point(15, 0),
                             labelClass: "labels", // the CSS class for the label
                             labelStyle: {opacity: 1.0}
                         });
