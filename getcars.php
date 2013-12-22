@@ -20,8 +20,6 @@ for ($i = 0; $i <= 9; $i++) {
         $car[$i][type] = 'c';
 }
 
-
-
 //echo count($car);
 //exit;
 
@@ -29,9 +27,6 @@ $all_cars = array();
 for ($i = 0; $i < count($car); $i++) {
     array_push($all_cars, $car[$i]);
 }
-
-
-
 echo json_encode($all_cars);
 exit();
 ?>
