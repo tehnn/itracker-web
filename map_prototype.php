@@ -98,13 +98,13 @@
                         //Create marker
                         var icon_img;
                         if (loc.type == 'a') {
-                            icon_img = 'a.png';
+                            icon_img = 'mapicon/a.png';
                         }
                         if (loc.type == 'b') {
-                            icon_img = 'b.png';
+                            icon_img = 'mapicon/b.png';
                         }
                         if (loc.type == 'c') {
-                            icon_img = 'c.png';
+                            icon_img = 'mapicon/c.png';
                         }
 
                         loc.marker = new MarkerWithLabel({
