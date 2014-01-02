@@ -93,18 +93,16 @@
 
                 $.each(locObj, function(key, loc) {
                     if (!locations[key] && loc.lat !== undefined && loc.lng !== undefined) {
-                  
-
-                
+                    
                         var icon_img;
                         if (loc.type == 'a') {
-                            icon_img = 'a.png';
+                            icon_img = 'mapicon/a.png';
                         }
                         if (loc.type == 'b') {
-                            icon_img = 'b.png';
+                            icon_img = 'mapicon/b.png';
                         }
                         if (loc.type == 'c') {
-                            icon_img = 'c.png';
+                            icon_img = 'mapicon/c.png';
                         }
 
                         loc.marker = new MarkerWithLabel({
@@ -118,7 +116,7 @@
                             labelStyle: {opacity: 1.0}
                         });
 
-                      
+                       
                         google.maps.event.addListener(loc.marker, 'click', (function(key) {
                             return function() {
                                 if (locations[key]) {
@@ -128,7 +126,7 @@
                             }
                         })(key));
 
-                      
+                       
                         locations[key] = loc;
                     }
                     else if (locations[key] && loc.remove) {
@@ -136,14 +134,14 @@
                         if (locations[key].marker) {
                             locations[key].marker.setMap(null);
                         }
-                       
+                        
                         delete locations[key];
                     }
                     else if (locations[key]) {
-                       
+                        
                         $.extend(locations[key], loc);
                         if (loc.lat !== undefined && loc.lng !== undefined) {
-                          
+                            
                             locations[key].marker.setPosition(
                                     new google.maps.LatLng(loc.lat, loc.lng)
                                     );
@@ -155,11 +153,11 @@
 
             var ajaxObj = {
                 options: {
-                    url: "getcars.php", 
+                    url: "getcars.php",
                     dataType: "json"
                 },
                 delay: 2000, 
-                errorCount: 0,
+                errorCount: 0, 
                 errorThreshold: 5, 
                 ticker: null, 
                 get: function() { 
@@ -173,7 +171,7 @@
                 }
             };
 
-          
+        
             function getCarsData() {
                 $.ajax(ajaxObj.options)
                         .done(setMarkers) 
@@ -181,9 +179,8 @@
                         .always(ajaxObj.get); 
             }
 
-           
+            
             ajaxObj.get();
-
 
         </script>
 
