@@ -21,15 +21,13 @@ $res = mysql_query($sql);
 $i = 0;
 while ($row = mysql_fetch_array($res)) {
 
-    $car[$i][info] = $row[address];
+    $car[$i][info] = $row[address]."\r\n".$row[speed];
     $car[$i][speed] = $row[speed];
     $car[$i][lat] = $row[lat];
     $car[$i][lng] = $row[lng];
     $car[$i][id] = $row[id];
     $car[$i][type] = 'c';
-    if ($row[speed] == '0.0') {
-        $car[$i][type] = 'b';
-    }
+    
     $i++;
 }//end while
 
