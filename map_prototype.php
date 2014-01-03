@@ -53,7 +53,7 @@
           
             
             <div  data-role="header" data-position="fixed" data-theme="f">
-                <a href="#l-panel" data-icon="bars" >Menu</a>
+                <a href="index.php" data-icon="bars" >Menu</a>
                 <h1>iTracker Location Monitor</h1>
             </div>
 

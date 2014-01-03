@@ -27,6 +27,9 @@ while ($row = mysql_fetch_array($res)) {
     $car[$i][lng] = $row[lng];
     $car[$i][id] = $row[id];
     $car[$i][type] = 'c';
+    if ($row[speed] == '0.0') {
+        $car[$i][type] = 'b';
+    }
     $i++;
 }//end while
 
