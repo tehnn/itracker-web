@@ -41,20 +41,23 @@
             }// end setHeigth
 
             $(document).on('pageshow', '#page-map', function(e, data) {
+                //alert(getRealContentHeight());
                 $('#content').height(getRealContentHeight());
-                
+
             });
         </script>
 
     </head>
     <body>
-        <div data-role="page" id="page-map" >
+        <div data-role="page" id="page-map" >           
+          
+            
             <div  data-role="header" data-position="fixed" data-theme="f">
-                <a href="#" data-icon="bars">Menu</a>
+                <a href="#l-panel" data-icon="bars" >Menu</a>
                 <h1>iTracker Location Monitor</h1>
             </div>
 
-            <div data-role="content" id="content">
+            <div data-role="content" id="content" >
                 <div id="map-canvas" style="height:100%"></div>
             </div>
 
@@ -63,7 +66,7 @@
             </div>
         </div>
 
-
+        <!-- Start Map Java Script -->
         <script>
             var locations = {};//A repository for markers (and the data from which they were contructed).
 
@@ -109,8 +112,7 @@
 
                         loc.marker = new MarkerWithLabel({
                             position: new google.maps.LatLng(loc.lat, loc.lng),
-                            icon:icon_img,
-                           
+                            icon: icon_img,
                             map: map,
                             labelContent: loc.info,
                             labelAnchor: new google.maps.Point(15, 0),
@@ -186,6 +188,8 @@
 
 
         </script>
+
+        <!-- End Map Java Script -->
 
     </body>
 </html>
