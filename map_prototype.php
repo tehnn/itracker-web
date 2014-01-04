@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">        
@@ -193,3 +193,6 @@
 
     </body>
 </html>
+<?php
+//http://stackoverflow.com/questions/14771422/google-map-v3-auto-refresh-markers-only
+?>
