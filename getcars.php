@@ -21,7 +21,7 @@ $res = mysql_query($sql);
 $i = 0;
 while ($row = mysql_fetch_array($res)) {
 
-    $car[$i][info] = $row[address]."\r\n".$row[speed];
+    $car[$i][info] = $row[address]." ".$row[speed]."kmh";
     $car[$i][speed] = $row[speed];
     $car[$i][lat] = $row[lat];
     $car[$i][lng] = $row[lng];

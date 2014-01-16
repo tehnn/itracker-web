@@ -59,7 +59,7 @@
             </div>
 
             <div data-role="footer" data-position="fixed" data-theme="f" >
-                <h4>Copy Right 2013 - 2015</h4>
+                <h4>Copyright 2014-2018 by Mr.UTEHN JADYANGTONE. All Rights Reserved.</h4>
             </div>
         </div>
 
@@ -69,9 +69,9 @@
 
 
             var map = new google.maps.Map(document.getElementById('map-canvas'), {
-                zoom: 4,
+                zoom: 5,
                 streetViewControl: false,
-                center: new google.maps.LatLng(16, 100),
+                center: new google.maps.LatLng(13.5, 100.5),
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             });
             var infowindow = new google.maps.InfoWindow();
