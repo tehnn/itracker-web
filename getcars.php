@@ -26,7 +26,7 @@ while ($row = mysql_fetch_array($res)) {
     $car[$i][lat] = $row[lat];
     $car[$i][lng] = $row[lng];
     $car[$i][id] = $row[id];
-    $car[$i][vtype] = $row[vtype];
+    $car[$i][type] = $row[vtype];
     
     $i++;
 }//end while

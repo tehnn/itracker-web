@@ -16,12 +16,13 @@ $lng = $_POST['lng'];
 $speed = $_POST['speed'];
 $speed =  number_format($speed*3.6, 2, '.', '');
 $address = trim($_POST['address']);
+$vtype = trim($_POST['vtype']);
 if($address==""){
   $address = substr($imei,-5);  
 }
 
-$sql = "insert into data (id,time,simsn,number,imei,net,cellid,lat,lng,speed,address) 
-	values (null,'$time','$simsn','$number','$imei','$net','$cellid','$lat','$lng','$speed','$address')";
+$sql = "insert into data (id,time,simsn,number,imei,net,cellid,lat,lng,speed,address,vtype) 
+	values (null,'$time','$simsn','$number','$imei','$net','$cellid','$lat','$lng','$speed','$address','$vtype')";
 mysql_query($sql);
 mysql_close($con);
 ?>

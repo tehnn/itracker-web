@@ -100,14 +100,17 @@
 
                         //Create marker
                         var icon_img;
-                        if (loc.vtype == 'a') {
+                        if (loc.type == 'a') {
                             icon_img = 'mapicon/a.png';
                         }
-                        if (loc.vtype == 'b') {
+                        else if (loc.type == 'b') {
                             icon_img = 'mapicon/b.png';
                         }
-                        if (loc.vtype == 'c') {
+                        else if (loc.type == 'c') {
                             icon_img = 'mapicon/c.png';
+                        }
+                        else{
+                             icon_img = 'mapicon/a.png';
                         }
 
                         loc.marker = new MarkerWithLabel({
