@@ -16,7 +16,7 @@ $sql = "select * from data inner join
     (select address , max(id) as id  from data group by address) as dt
      on data.address = dt.address and data.id = dt.id";
 
-$sql = "select * from vw_data";
+//$sql = "select * from vw_data";
 $res = mysql_query($sql);
 $i = 0;
 while ($row = mysql_fetch_array($res)) {
@@ -26,7 +26,7 @@ while ($row = mysql_fetch_array($res)) {
     $car[$i][lat] = $row[lat];
     $car[$i][lng] = $row[lng];
     $car[$i][id] = $row[id];
-    $car[$i][type] = 'c';
+    $car[$i][vtype] = $row[vtype];
     
     $i++;
 }//end while
